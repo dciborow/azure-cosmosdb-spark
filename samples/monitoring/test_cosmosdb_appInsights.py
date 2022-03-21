@@ -41,8 +41,8 @@ def getReadConfig():
     "Collection" : "sourcecollection", 
     "SamplingRatio" : "1.0"
   }
-  
-  logger.info('read config from cosmos db: ' + str(readConfig))
+
+  logger.info(f'read config from cosmos db: {readConfig}')
   return readConfig
 
 def getWriteConfig():
@@ -53,8 +53,8 @@ def getWriteConfig():
     "Collection" : "outputcollection",
     "Upsert" : "true"
   }
-  
-  logger.info('write config from cosmos db: ' + str(writeConfig))
+
+  logger.info(f'write config from cosmos db: {writeConfig}')
   return writeConfig
   
   
@@ -76,9 +76,9 @@ def writeToCosmosDB(df, config):
 
 def count_records(df):
   count = df.count()
-  logger.info('finished reading from cosmos db with ' + str(count) + ' records')
+  logger.info(f'finished reading from cosmos db with {str(count)} records')
   tc.track_metric('read_count', count)
-  print('records count: ' + str(count))
+  print(f'records count: {str(count)}')
   
 def run():
   try:
